@@ -1,11 +1,6 @@
 require "spec_helper"
 
 describe Sh::Cmd do
-  # it "can accept a csv path" do
-  #   table = Crunch.table( File.expand_path("../data/test.csv", __FILE__) )
-  #   table.first['domain'].must_equal "example.com"
-  # end
-
   it "can build a shell command with a block" do
     cmd = Sh::Cmd.new("git") do |c|
       c.arg "log"

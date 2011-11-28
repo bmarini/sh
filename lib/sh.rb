@@ -13,14 +13,14 @@ require "escape"
 #
 #     # OR
 #
-#     cmd = Sh::Cmd.new("git").arg("log").opt("--online")
+#     cmd = Sh::Cmd.new("git").arg("log").opt("--oneline")
 #
 #     puts cmd # => "git log --oneline"
 
 module Sh
   class Cmd
     def initialize(cmd="")
-      @cmd, @args, @opts = cmd, [], []
+      @cmd, @args = cmd, []
       yield self if block_given?
     end
 
@@ -28,14 +28,10 @@ module Sh
       @args += args
       self
     end
-
-    def opt(*opts)
-      @opts += opts
-      self
-    end
+    alias_method :opt, :arg
 
     def to_s
-      [ @cmd ].concat(@args).concat(@opts).map(&:to_s).map { |w| escape(w) }.join(' ')
+      [ @cmd ].concat(@args).map(&:to_s).map { |w| escape(w) }.join(' ')
     end
 
     def exec

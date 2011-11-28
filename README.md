@@ -13,7 +13,7 @@ end
 
 # OR
 
-cmd = Sh::Cmd.new("git").arg("log").opt("--online")
+cmd = Sh::Cmd.new("git").arg("log").opt("--oneline")
 
 puts cmd # => "git log --oneline"
 ```

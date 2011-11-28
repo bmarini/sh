@@ -1,7 +1,7 @@
 # Sh::Cmd
 
 Sh::Cmd is useful for constructing large Sh commands programmatically.
-It also has the benefit of Sh escaping any args you pass.
+It also has the benefit of Shell escaping any args you pass.
 
 ## Usage:
 
